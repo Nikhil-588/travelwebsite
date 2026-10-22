@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "location": "Bali, Indonesia",
+    "rating": 4.8,
+    "url": "https://www.indonesia.travel/"
+  },
+  {
+    "id": 2,
+    "location": "Paris, France",
+    "rating": 4.9,
+    "url": "https://parisjetaime.com/eng/"
+  },
+  {
+    "id": 3,
+    "location": "Manali, India",
+    "rating": 4.7,
+    "url": "https://himachaltourism.gov.in/"
+  },
+  {
+    "id": 4,
+    "location": "Maldives",
+    "rating": 4.9,
+    "url": "https://visitmaldives.com/"
+  },
+  {
+    "id": 5,
+    "location": "Tokyo, Japan",
+    "rating": 4.8,
+    "url": "https://www.gotokyo.org/en/"
+  },
+  {
+    "id": 6,
+    "location": "Goa, India",
+    "rating": 4.6,
+    "url": "https://goa-tourism.com/"
+  }
+]
