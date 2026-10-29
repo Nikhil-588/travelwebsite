@@ -1,5 +1,4 @@
-import travelData from "./travel.json";
-
+import travelData from "../travel.json";
 function Tours() {
   const handleCardClick = (place) => {
     console.log("Destination details opened:", place);
