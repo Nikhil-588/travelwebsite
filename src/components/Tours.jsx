@@ -1,11 +1,17 @@
+
 import travelData from "./travel.json";
-function Tours() {
+
+function Tours({ onBook }) {
   const handleCardClick = (place) => {
     console.log("Destination details opened:", place);
   };
 
   const handleBooking = (place) => {
-    console.log("Booking started:", place);
+    if (onBook) {
+      onBook(place);
+    } else {
+      console.log("Booking started:", place);
+    }
   };
 
   return (
@@ -25,13 +31,11 @@ function Tours() {
               {e.location}
             </h2>
 
-            <p className="mb-3">
-              Rating: ⭐ {e.rating}
-            </p>
+            <p className="mb-3">Rating: ⭐ {e.rating}</p>
 
             {e.image && (
               <img
-                src="/image.png"
+                src={e.image}
                 alt={e.location}
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
@@ -70,6 +74,5 @@ function Tours() {
     </div>
   );
 }
-
 
 export default Tours;

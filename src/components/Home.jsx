@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import About from "./About";
-import Tours from "./tours";
+import Tours from "./Tours";
 
 
 function Home() {
