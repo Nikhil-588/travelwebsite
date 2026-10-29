@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
-import Tours from "./components/tours";
+import Tours from "./Tours";
 import Login from "./components/Login";
 import Sign from "./components/Sign";
 //import Derived from "./components/Derived";
