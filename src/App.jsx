@@ -1,24 +1,40 @@
 
-  import { BrowserRouter, Routes, Route } from "react-router-dom";
-  import Navbar from "./components/Navbar";
-  import Home from "./components/Home";
-  import About from "./components/About";
-  import Tours from "./components/tours";
-  import Sign from "./components/Sign"
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-  function App() {
-    return (
-      <BrowserRouter>
-        <Navbar />
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import About from "./components/About";
+import Tours from "./components/Tours";
+import Login from "./components/Login";
+import Sign from "./components/Sign";
+//import Derived from "./components/Derived";
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/tours" element={<Tours />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/sign" element={<Sign/>}/>
-        </Routes>
-      </BrowserRouter>
-    );
-  }
+function App() {
+  const [isDark, setIsDark] = useState(false);
 
-  export default App;
+  return (
+    <BrowserRouter>
+      <div className={isDark ? "dark" : ""}>
+        <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+           
+          <Navbar
+            isDark={isDark}
+            setIsDark={setIsDark}
+          />
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/tours" element={<Tours />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/sign" element={<Sign />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+
+        </div>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;

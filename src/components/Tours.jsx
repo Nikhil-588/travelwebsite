@@ -1,25 +1,76 @@
-import Navbar from "./Navbar";
 import travelData from "./travel.json";
-function Tours(){
-    return(
-        <div>
-            <Navbar/>
-        <div className="bg-blue-100">
-            <h1 className="font-bold text-black ml-140 text-2xl py-10 justify-center text-gray-700" >POPULAR DESTINATIONS</h1>
-            <div className="flex px-10 gap-10 py-3 ">
-            {travelData.map((e)=>(
-                <div key={e.id} className="border-2 w-50 border border-black hover:scale-105  rounded-[6px]">
-                        <img src="/image.png" alt="image" className="w-50 h-40 border rounded-[1px]"/>
-                        < div className="bg-blue-50">
-                        <p className="text-blue-500 mx-3">📍 {e.location}</p>
-                        <p className="text-blue-400 mx-3"> ⭐ {e.rating}</p>
-                         <a href={e.url} target="_blank" className="border border-black  flex justify-center bg-blue-600 hover:scale-103 w-auto">View Details</a>
-                         </div>
-                </div>
-            ))}
+
+function Tours() {
+  const handleCardClick = (place) => {
+    console.log("Destination details opened:", place);
+  };
+
+  const handleBooking = (place) => {
+    console.log("Booking started:", place);
+  };
+
+  return (
+    <div className="p-6">
+      <h1 className="text-3xl font-bold text-center mb-8">
+        Popular Destinations
+      </h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {travelData.map((e) => (
+          <div
+            key={e.location}
+            onClick={() => handleCardClick(e.location)}
+            className="border rounded-xl p-5 shadow-md cursor-pointer hover:shadow-xl transition"
+          >
+            <h2 className="text-xl font-bold mb-2">
+              {e.location}
+            </h2>
+
+            <p className="mb-3">
+              Rating: ⭐ {e.rating}
+            </p>
+
+            {e.image && (
+              <img
+                src="/image.png"
+                alt={e.location}
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+            )}
+
+            {e.description && (
+              <p className="text-gray-600 mb-4">
+                {e.description}
+              </p>
+            )}
+
+            <div className="flex gap-3">
+              <a
+                href={e.url}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(event) => event.stopPropagation()}
+                className="bg-gray-200 px-3 py-2 rounded text-center"
+              >
+                View Details
+              </a>
+
+              <button
+                onClick={(event) => {
+                  event.stopPropagation();
+                  handleBooking(e.location);
+                }}
+                className="bg-blue-600 text-white px-3 py-2 rounded"
+              >
+                Book Now
+              </button>
             </div>
-        </div>
-        </div>
-    );
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
+
+
 export default Tours;
